@@ -7,6 +7,8 @@ void s_tolower(const char [256], char [256]);
 void getInput(const char [256]);
 int isJoke(const char [256]);
 void jokes();
+int isApp(const char [256]);
+void startApp(int);
 void s_tolower(const char user_inp[256], char user_out[256])
 {
     int i, j=0;
@@ -89,4 +91,39 @@ void jokes()
     strcat(str, jokestr);
     strcat(str, " . Hahah\"");
     system(str);
+}
+int isApp(const char str[256])
+{
+    char str2[256]={};
+    strcpy(str2, str);
+    char *token = strtok(str2, " ");
+    while(token!=NULL)
+    {
+        if(strcmp(token, "youtube")==0)
+            return 1;
+        if(strcmp(token, "facebook")==0)
+            return 2;
+        if(strcmp(token, "google")==0)
+            return 3;
+        if(strcmp(token, "whatsapp")==0)
+            return 4;
+        if(strcmp(token, "gmail")==0)
+            return 5;
+        if(strcmp(token, "portal")==0)
+            return 6;
+        token = strtok(NULL, " ");
+    }
+    return 0;
+}
+void startApp(int i)
+{
+    switch(i)
+    {
+        case 1: printf("Opening youtube..\n\n"); system("say.vbs \"Opening youtube.\""); system("start https://youtube.com/"); break;
+        case 2: printf("Opening facebook..\n\n"); system("say.vbs \"Opening facebook.\""); system("start https://facebook.com/"); break;
+        case 3: printf("Opening google..\n\n"); system("say.vbs \"Opening google.\""); system("start https://google.com/"); break;
+        case 4: printf("Opening whatsapp..\n\n"); system("say.vbs \"Opening whatsapp.\""); system("start https://web.whatsapp.com/"); break;
+        case 5: printf("Opening gmail..\n\n"); system("say.vbs \"Opening gmail.\""); system("start https://mail.google.com/"); break;
+        case 6: printf("Opening student portal..\n\n"); system("say.vbs \"Opening student portal.\""); system("start https://cuonline.cuilahore.edu.pk:8090/"); break;
+    }
 }

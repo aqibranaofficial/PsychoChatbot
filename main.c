@@ -8,7 +8,7 @@
 
 int main()
 {
-    int j;
+    int j, k;
 	char input[256], output[256];
     printf("Hello, How can Psycho help you?\n\n");
     system("say.vbs \"Hello, How can Psycho help you?\"");
@@ -39,6 +39,12 @@ int main()
         if(isTime(output))
         {
             dateAndTime(output);
+            continue;
+        }
+        if(isApp(output))
+        {
+            k = isApp(output);
+            startApp(k);
             continue;
         }
         if(strcmp(output, "bye")==0 || strcmp(output, "exit")==0 || strcmp(output, "good bye")==0)
